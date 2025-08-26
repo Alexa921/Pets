@@ -684,7 +684,6 @@ body {
 }
 
 /* SECTION10 */
-/* SECTION10 */
 .cat-lovers {
   text-align: center;
   padding: 60px 20px;
@@ -717,7 +716,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* el gato se recorta dentro del círculo */
+  overflow: hidden;
   transition: transform 0.5s ease;
   position: relative;
   z-index: 1;
@@ -725,20 +724,279 @@ body {
 
 /* IMAGEN DEL GATO */
 .cat-frame img {
-  width: 100%; /* ocupa todo el círculo */
+  width: 100%; 
   height: auto;
-  object-fit: cover; /* asegura que el gato se vea bien dentro */
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 
 /* EFECTO HOVER */
 .cat-frame:hover {
-  transform: scale(1.1); /* círculo más grande */
+  transform: scale(1.1); 
 }
 
 .cat-frame:hover img {
-  transform: scale(1.15); /* el gato también crece */
+  transform: scale(1.15); 
 }
+
+/* SECTION11 */
+.cat-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+  background: #faf5f3;
+  border-radius: 15px;
+  overflow: hidden;
+  max-width: 1500px;   
+  width: 100%;         
+  height: 700px;
+  margin: 150px auto;  
+}
+
+.cat-text {
+  padding: 20px;
+}
+
+.cat-text h2 {
+  font-size: 65px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #984b2c;
+  font-weight: lighter;
+  margin-left: 50px;
+}
+
+.cat-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: #984b2c;
+  margin-left: 50px;
+}
+
+.cat-text .btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border: 1px solid #984b2c;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #984b2c;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-left: 50px;
+  font-size: 25px;
+}
+
+.cat-text .btn:hover {
+  background: #984b2c;
+  color: #fff;
+}
+
+.cat-image img {
+  height: 700px;
+  object-fit: cover;
+  border-radius: 0px;
+}
+
+/* SECTION12 */
+/* ===== SECTION BEFORE-AFTER ===== */
+.before-after {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* Texto arriba */
+.before-after-text h2 {
+  font-size: 70px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.before-after-text p {
+  font-size: 22px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.before-after-text .btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: background 0.3s, color 0.3s;
+}
+
+.before-after-text .btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+  position: relative;
+  width: 900px;
+  height: 700px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-top: 40px; 
+}
+
+/* Imagen del perro sucio (de fondo) */
+.container img.before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Imagen del perro limpio (encima) */
+.container img.after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: inset(0 50% 0 0);
+  transition: clip-path 0.0s linear;
+}
+
+/* El deslizador */
+.slider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #fff;
+  cursor: ew-resize;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+
+/* SECTION13 */
+.shop-with-us {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.shop-header h2 {
+  font-size: 70px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.shop-header p {
+  font-size: 22px;
+  color: #666565;
+  margin-bottom: 70px;
+  font-weight: lighter;
+}
+
+.shop-videos {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.video-card {
+  width: 400px;
+  height: 620px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* SECTION14 */
+/* ===== SECTION 14 - VISIT US MAP ===== */
+.visit-us {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 60px auto;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  margin-top: 100px;
+}
+
+.map-container {
+  flex: 2;
+  min-width: 300px;
+   height: 550px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.info-container {
+  flex: 1; 
+  background: #f9f3f1;
+  padding: 50px; 
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+.info-container h2 {
+  font-size: 50px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.info-container p {
+  font-size: 1.1rem;
+  color: #808080;
+  margin-bottom: 20px;
+}
+
+.info-container h3 {
+  font-size: 50px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
 
 /* FOOTER */
 .footer {

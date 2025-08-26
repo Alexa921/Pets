@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/training-kit3.css">
+    <title>Pets</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/index.html"><h1 class="logo">PETS</h1></a>
+        </div>
+        <ul class="nav-center">
+            <li class="dropdown">
+                <a href="/cats.html">CATS</a>
+                <ul class="dropdown-menu">
+                    <li><a href="/">Instructores</a></li>
+                    <li><a href="/">Clases</a></li>
+                    <li><a href="/">Precios</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="/dogs.html">DOGS</a>
+                <ul class="dropdown-menu">
+                    <li><a href="/">Instructores</a></li>
+                    <li><a href="/">Clases</a></li>
+                    <li><a href="/">Precios</a></li>
+                </ul>
+            </li>
+            <li><a href="/small-pets.html">SMALL PETS</a></li>
+            <li><a href="/blog.html">BLOG</a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="https://instagram.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram" class="icon"></a>
+            <a href="https://facebook.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384005.png" alt="Facebook" class="icon"></a>
+            <a href="https://twitter.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384017.png" alt="Twitter" class="icon"></a>
+            <a href="/carrito.html"><img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Carrito" class="icon"></a>
+            <span id="contador">0</span>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+    </header>
+
+    <main>
+    <!-- SECTION1 -->
+    <section class="product-page">
+        <!-- Imagen -->
+        <div class="product-image">
+            <img src="img/producto2.webp" alt="Interactive Cat Toy">
+        </div>
+
+        <!-- Info -->
+        <div class="product-info">
+            <span class="badge">JUST IN</span>
+            <h4 class="brand">PAWS</h4>
+            <h1 class="product-title">TREAT DUMMY</h1>
+            <p class="price">$150.000</p>
+            <p class="shipping">TAX INCLUDED. <span>SHIPPING</span> CALCULATED AT CHECKOUT.</p>
+
+            <!-- Variantes de color -->
+            <div class="color-options">
+                <p>COLOR: <b>SAND</b></p>
+                <img src="img/producto2.webp" alt="Color sand">
+            </div>
+
+            <!-- Stock -->
+            <div class="stock-box">
+                <span class="in-stock">✔ IN STOCK</span>
+                <span class="returns">FREE 60 DAY RETURNS</span>
+            </div>
+
+            <!-- Cantidad + carrito -->
+            <div class="cart-actions">
+                <div class="quantity">
+                    <button>-</button>
+                    <input type="text" value="1">
+                    <button>+</button>
+                </div>
+                <button class="add-cart">🛒 ADD TO CART</button>
+            </div>
+
+            <button class="buy-now">BUY IT NOW</button>
+
+            <!-- Pickup -->
+            <div class="pickup">
+                <p>✔ PICKUP AVAILABLE AT <b>LOS ANGELES STORE</b><br>
+                Ready in about 2-4 days</p>
+                <a href="#">Check availability at other stores</a>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="newsletter">
+            <h2>FAMILIA PELUDA</h2>
+            <p>Regístrate para recibir noticias exclusivas sobre nuevos productos, ofertas especiales y consejos para el cuidado de tus mascotas. Prometemos solo enviarte cosas que te hagan mover la cola. Respetamos tu privacidad y nunca compartiremos tu información con terceros.</p>
+            <form>
+                <input class="email" type="email" placeholder="Correo electrónico" required>
+                <button type="submit">Registrarse</button>
+            </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <h3>AYUDA</h3>
+                <ul>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>CONTACTO</h3>
+                <p>alexandra@ejemplo.com</p>
+                <p>1+(555)-555-5555</p>
+                <p>© Alexandra Restrepo - 2025</p>
+            </div>
+
+            <div class="footer-logo">
+                <h3>PETS</h3>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="carrito.js"></script>
+<script>
+    // Detecta el scroll y agrega/clasifica clase "scrolled"
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) { 
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+</script>
+</html>
