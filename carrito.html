@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/gato-tienda4.css">
-    <title>Pets</title>
+    <link rel="stylesheet" href="css/carrito.css">
+    <title>PETS - Carrito</title>
 </head>
 <body>
     <!-- NAVBAR -->
@@ -20,8 +20,6 @@
             </li>
             <li class="dropdown">
                 <a href="/dogs.html">DOGS</a>
-                <ul class="dropdown-menu">
-                </ul>
             </li>
             <li><a href="/small-pets.html">SMALL PETS</a></li>
             <li><a href="/blog.html">BLOG</a></li>
@@ -35,70 +33,26 @@
         </div>
     </nav>
 
-    <!-- HERO -->
-    <header class="hero">
-    </header>
+    <!-- CONTENIDO DEL CARRITO -->
+    <main class="container mt-5">
+        <h2>Tu carrito</h2>
+        <div id="lista-carrito"></div>
 
-    <main>
-    <!-- SECTION1 -->
-    <section class="product-page">
-        <!-- Imagen -->
-        <div class="product-image">
-            <img src="img/gato-juego4.webp" alt="Interactive Cat Toy">
+        <div class="mt-3">
+            <h4>Subtotal: <span id="subtotal">0,00 </span></h4>
         </div>
-
-        <!-- Info -->
-        <div class="product-info">
-            <span class="badge">JUST IN</span>
-            <h4 class="brand">PAWS</h4>
-            <h1 class="product-title">CAT HOUSE</h1>
-            <p class="price">$600.000</p>
-            <p class="shipping">TAX INCLUDED. <span>SHIPPING</span> CALCULATED AT CHECKOUT.</p>
-
-            <!-- Variantes de color -->
-            <div class="color-options">
-                <p>COLOR: <b>SAND</b></p>
-                <img src="img/gato-juego4.webp" alt="Color sand">
-            </div>
-
-            <!-- Stock -->
-            <div class="stock-box">
-                <span class="in-stock">✔ IN STOCK</span>
-                <span class="returns">FREE 60 DAY RETURNS</span>
-            </div>
-
-            <!-- Cantidad + carrito -->
-            <div class="cart-actions">
-                <div class="quantity">
-                    <button>-</button>
-                    <input type="text" value="1">
-                    <button>+</button>
-                </div>
-                <button class="add-cart">🛒 ADD TO CART</button>
-            </div>
-
-            <button class="buy-now">BUY IT NOW</button>
-
-            <!-- Pickup -->
-            <div class="pickup">
-                <p>✔ PICKUP AVAILABLE AT <b>LOS ANGELES STORE</b><br>
-                Ready in about 2-4 days</p>
-                <a href="#">Check availability at other stores</a>
-            </div>
-        </div>
-    </section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer">
+    <footer class="footer mt-5">
         <div class="footer-top">
             <div class="newsletter">
-            <h2>FAMILIA PELUDA</h2>
-            <p>Regístrate para recibir noticias exclusivas sobre nuevos productos, ofertas especiales y consejos para el cuidado de tus mascotas. Prometemos solo enviarte cosas que te hagan mover la cola. Respetamos tu privacidad y nunca compartiremos tu información con terceros.</p>
-            <form>
-                <input class="email" type="email" placeholder="Correo electrónico" required>
-                <button type="submit">Registrarse</button>
-            </form>
+                <h2>MANTENTE AL DÍA</h2>
+                <p>Regístrate para enterarte de las clases nuevas, los servicios adicionales y más antes que nadie.</p>
+                <form>
+                    <input class="email" type="email" placeholder="Correo electrónico" required>
+                    <button type="submit">Registrarse</button>
+                </form>
             </div>
         </div>
 
@@ -120,14 +74,13 @@
             </div>
 
             <div class="footer-logo">
-                <h3>PETS</h3>
+                <h3>ENERGYM</h3>
             </div>
         </div>
     </footer>
-</body>
-<script src="carrito.js"></script>
-<script>
-    // Detecta el scroll y agrega/clasifica clase "scrolled"
+
+     <script>
+    // Navbar scroll
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) { 
@@ -136,5 +89,20 @@
             navbar.classList.remove('scrolled');
         }
     });
-</script>
+
+
+    function addToCart(name, price) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    carrito.push({ name, price });
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    // actualizar numerito en el ícono
+    document.getElementById("contador").textContent = carrito.length;
+}
+
+    </script>
+
+    <!-- 🚀 Solo dejamos este -->
+    <script src="carrito.js"></script>
+</body>
 </html>

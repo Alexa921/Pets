@@ -6,7 +6,6 @@
 
 body {
     color: black;
-    font-family: Arial, sans-serif;
 }
 
 /* NAVBAR */
@@ -52,35 +51,6 @@ body {
 }
 
 /* Dropdown */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%; 
-    left: 0;
-    background: white; /* ✅ fondo blanco */
-    padding: 10px 0;
-    list-style: none;
-    min-width: 160px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.dropdown-menu li a {
-    display: block;
-    padding: 10px 20px;
-    color: black; /* ✅ letras negras */
-    font-size: 16px;
-    transition: background 0.3s ease;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-}
 
 .nav-right {
     display: flex;
@@ -172,6 +142,16 @@ body {
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
+   position: relative; /* necesario para posicionar el link encima */
+  cursor: pointer;
+}
+
+.stretched-link {
+  position: absolute;
+  inset: 0; /* top, right, bottom, left = 0 */
+  z-index: 2;
+  text-indent: -9999px; /* oculta texto accesible */
+  background: transparent;
 }
 
 .news-card:hover {
@@ -182,6 +162,14 @@ body {
   width: 100%;
   height: 350px;
   object-fit: cover;
+}
+
+.news-card * {
+  pointer-events: none;
+}
+
+.stretched-link {
+  pointer-events: auto;
 }
 
 .news-content {
@@ -208,6 +196,12 @@ body {
   font-size: 15px;
   color: #666;
   line-height: 1.6;
+}
+
+.news-link {
+  display: block; 
+  text-decoration: none; /* quita subrayado */
+  color: inherit; /* mantiene colores originales */
 }
 
 
