@@ -6,14 +6,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+  function formatearPesos(valor) {
+    return new Intl.NumberFormat("es-CO", {
+      style: "currency",
+      currency: "COP",
+      minimumFractionDigits: 0
+    }).format(valor);
+  }
+
   // Actualizar contador
   function actualizarContador() {
     if (contador) contador.textContent = carrito.length;
   }
 
-  // Mostrar productos en carrito.html
+  // Renderizar carrito en carrito.html
   function renderCarrito() {
-    if (!listaCarrito || !subtotalEl) return; // si no estamos en carrito.html, salimos
+    if (!listaCarrito || !subtotalEl) return;
 
     listaCarrito.innerHTML = "";
     let subtotal = 0;
@@ -22,26 +30,40 @@ document.addEventListener("DOMContentLoaded", () => {
       subtotal += producto.precio * producto.cantidad;
 
       const item = document.createElement("div");
-      item.classList.add("item-carrito");
+      item.classList.add("producto-carrito");
       item.innerHTML = `
         <img src="${producto.imagen}" alt="${producto.nombre}">
         <div class="producto-info">
             <h4>${producto.nombre}</h4>
-            <p>COLOR: Sand</p>
+            <p>COLOR: ${producto.color}</p>
         </div>
-        <p class="producto-precio">$${producto.precio}</p>
+        <div class="producto-precio">${formatearPesos(producto.precio)}</div>
         <div class="cantidad-box">
-            <button>-</button>
-            <input type="text" value="${producto.cantidad}">
-            <button>+</button>
+            <button data-action="restar">-</button>
+            <input type="text" value="${producto.cantidad}" readonly>
+            <button data-action="sumar">+</button>
         </div>
         <button class="eliminar" data-index="${index}">🗑</button>
-        `;
+      `;
 
       listaCarrito.appendChild(item);
+
+      // Botones + y -
+      item.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (btn.dataset.action === "sumar") {
+            producto.cantidad++;
+          } else if (btn.dataset.action === "restar" && producto.cantidad > 1) {
+            producto.cantidad--;
+          }
+          localStorage.setItem("carrito", JSON.stringify(carrito));
+          renderCarrito();
+        });
+      });
     });
 
-    subtotalEl.textContent = subtotal.toFixed(2);
+    // 👇 Aquí usamos formatearPesos para el subtotal
+    subtotalEl.textContent = formatearPesos(subtotal);
 
     // Botones eliminar
     document.querySelectorAll(".eliminar").forEach((btn) => {
@@ -59,21 +81,20 @@ document.addEventListener("DOMContentLoaded", () => {
   actualizarContador();
   renderCarrito();
 
-  // Agregar al carrito (en páginas de productos)
+  // Agregar al carrito
   botones.forEach((boton) => {
     boton.addEventListener("click", () => {
       const producto = {
         nombre: boton.dataset.nombre,
         precio: parseFloat(boton.dataset.precio),
         imagen: boton.dataset.imagen,
+        color: boton.dataset.color, 
         cantidad: 1,
       };
 
       carrito.push(producto);
       localStorage.setItem("carrito", JSON.stringify(carrito));
       actualizarContador();
-
-      alert(`${producto.nombre} fue agregado al carrito 🐾`);
     });
   });
 });

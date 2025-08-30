@@ -35,24 +35,24 @@
 
     <!-- CONTENIDO DEL CARRITO -->
     <main class="container mt-5">
-        <h2>Tu carrito</h2>
+        <h2>CART</h2>
         <div id="lista-carrito"></div>
 
         <div class="mt-3">
-            <h4>Subtotal: <span id="subtotal">0,00 </span></h4>
+            <h4>SUBTOTAL: <span id="subtotal">0</span></h4>
         </div>
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer mt-5">
+    <footer class="footer">
         <div class="footer-top">
             <div class="newsletter">
-                <h2>MANTENTE AL DÍA</h2>
-                <p>Regístrate para enterarte de las clases nuevas, los servicios adicionales y más antes que nadie.</p>
-                <form>
-                    <input class="email" type="email" placeholder="Correo electrónico" required>
-                    <button type="submit">Registrarse</button>
-                </form>
+            <h2>FAMILIA PELUDA</h2>
+            <p>Regístrate para recibir noticias exclusivas sobre nuevos productos, ofertas especiales y consejos para el cuidado de tus mascotas. Prometemos solo enviarte cosas que te hagan mover la cola. Respetamos tu privacidad y nunca compartiremos tu información con terceros.</p>
+            <form>
+                <input class="email" type="email" placeholder="Correo electrónico" required>
+                <button type="submit">Registrarse</button>
+            </form>
             </div>
         </div>
 
@@ -74,7 +74,7 @@
             </div>
 
             <div class="footer-logo">
-                <h3>ENERGYM</h3>
+                <h3>PETS</h3>
             </div>
         </div>
     </footer>
@@ -99,6 +99,19 @@
     // actualizar numerito en el ícono
     document.getElementById("contador").textContent = carrito.length;
 }
+
+
+function formatearPesos(valor) {
+    return new Intl.NumberFormat("es-CO", {
+        style: "currency",
+        currency: "COP",
+        minimumFractionDigits: 0
+    }).format(valor);
+}
+
+// 🚀 Ejemplo: actualizar el subtotal
+let subtotal = 125000; // ejemplo, podrías traerlo de tu carrito
+document.getElementById("subtotal").textContent = formatearPesos(subtotal);
 
     </script>
 

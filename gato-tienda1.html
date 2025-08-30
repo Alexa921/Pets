@@ -15,11 +15,13 @@
         <ul class="nav-center">
             <li class="dropdown">
                 <a href="/cats.html">CATS</a>
-                <ul class="dropdown-menu"></ul>
+                <ul class="dropdown-menu">
+                </ul>
             </li>
             <li class="dropdown">
                 <a href="/dogs.html">DOGS</a>
-                <ul class="dropdown-menu"></ul>
+                <ul class="dropdown-menu">
+                </ul>
             </li>
             <li><a href="/small-pets.html">SMALL PETS</a></li>
             <li><a href="/blog.html">BLOG</a></li>
@@ -34,7 +36,8 @@
     </nav>
 
     <!-- HERO -->
-    <header class="hero"></header>
+    <header class="hero">
+    </header>
 
     <main>
     <!-- SECTION1 -->
@@ -54,7 +57,7 @@
 
             <!-- Variantes de color -->
             <div class="color-options">
-                <p>COLOR: <b>SAND</b></p>
+                <p>COLOR: <b>BROWN</b></p>
                 <img src="img/gato-juego1.webp" alt="Color sand">
             </div>
 
@@ -65,21 +68,15 @@
             </div>
 
             <!-- Cantidad + carrito -->
-            <div class="cart-actions">
-                <div class="quantity">
-                    <button>-</button>
-                    <input type="text" value="1">
-                    <button>+</button>
-                </div>
-                <button
-                    class="add-cart"
-                    data-nombre="INTERACTIVE CAT TOY"
-                    data-precio="75000"
-                    data-imagen="img/gato-juego1.webp"
+            <button
+                class="add-cart"
+                data-nombre="INTERACTIVE CAT TOY"
+                data-precio="75000"
+                data-imagen="img/gato-juego1.webp"
+                data-color="BROWN"
                 >
-                    🛒 ADD TO CART
-                </button>
-            </div>
+                🛒 ADD TO CART
+            </button>
 
             <button class="buy-now">BUY IT NOW</button>
 
@@ -128,20 +125,17 @@
             </div>
         </div>
     </footer>
-    <script>
-      // Navbar scroll
-      window.addEventListener('scroll', function() {
-          const navbar = document.querySelector('.navbar');
-          if (window.scrollY > 50) { 
-              navbar.classList.add('scrolled');
-          } else {
-              navbar.classList.remove('scrolled');
-          }
-      });
-
-    </script>
-
-    <!-- Carrito -->
-    <script src="carrito.js"></script>
 </body>
+<script src="carrito.js"></script>
+<script>
+    // Detecta el scroll y agrega/clasifica clase "scrolled"
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) { 
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+</script>
 </html>
